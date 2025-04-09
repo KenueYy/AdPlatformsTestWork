@@ -2,9 +2,6 @@ version: '3.3'
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
     ports:
       - "777:777"
     image: kenuey/ad-platforms-testwork:latest
