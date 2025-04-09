@@ -15,28 +15,29 @@ public class AdPlatformController : ControllerBase
     }
     
     [HttpGet("search")]
-    public JsonResult GetLocation([FromQuery] string location)
+    public async Task<IActionResult> GetLocation([FromQuery] string location)
     {
-        if (!string.IsNullOrEmpty(location))
+        var result = await _repository.Search(location);
+
+        if (result.Count == 0)
         {
-            return new JsonResult(_repository.Search(location).Value);
+            return NotFound("No locations found");
         }
         
-        return new JsonResult("location is empty");
-     }
+        return Ok(result);
+    }
     
     [HttpPost("load")]
-    public JsonResult Load([FromBody] Platforms platforms)
+    public async Task<IActionResult> Load([FromBody] Platforms platforms)
     {
         try
         {
-            _repository.Load(platforms);
-            Console.WriteLine("Data Loaded");
-            return new JsonResult("Data Loaded");
+            await _repository.Load(platforms);
+            return Ok(new {message = "Data Loaded"});
         }
         catch (Exception e)
         {
-            return new JsonResult($"Invalid Data: {e}");
+            return BadRequest(new { message = $"Invalid Data: {e.Message}" });
         }
     }
 }

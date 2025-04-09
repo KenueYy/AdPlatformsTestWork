@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <DefineConstants>CACHE_ENABLED</DefineConstants>
     </PropertyGroup>
 
     <ItemGroup>
