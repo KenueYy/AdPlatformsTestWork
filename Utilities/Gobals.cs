@@ -7,5 +7,5 @@ public static class Globals
     
     
     public static string CACHE_SERVER_IP => IsProduction ? Environment.GetEnvironmentVariable("CACHE_SERVER_IP") ?? "localhost" : "localhost";
-    public static string REDIS_PORT => IsProduction ? Environment.GetEnvironmentVariable("REDIS_PORT") ?? "6379" : "6379";
+    public static string REDIS_PORT => IsProduction ? Environment.GetEnvironmentVariable("REDIS_PORT") ?? "6479" : "6479";
 }
