@@ -64,7 +64,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            echo ${{ production.DOCKER_PASSWORD }} | sudo docker login --username ${{ production.DOCKER_USERNAME }} --password-stdin
+            echo ${{ secrets.DOCKER_PASSWORD }} | sudo docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
             cd /home/AdPlatformsTestWork
             docker-compose down
             docker-compose up -d --build
