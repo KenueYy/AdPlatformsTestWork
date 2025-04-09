@@ -3,7 +3,7 @@ version: '3.3'
 services:
   app:
     ports:
-      - "777:777"
+      - "777:8080"
     image: kenuey/ad-platforms-testwork:latest
 
   redis:
