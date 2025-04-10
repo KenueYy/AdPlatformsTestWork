@@ -21,6 +21,7 @@ public class PlatformRepository
         _cache = cache;
         _cleaner = cleaner;
         _dataNormalizer = new JsonDataNormalizer();
+        _normalizePlatforms = new Platforms();
     }
     
 #else
@@ -28,6 +29,7 @@ public class PlatformRepository
     public PlatformRepository()
     {
         _dataNormalizer = new JsonDataNormalizer();
+        _normalizePlatforms = new Platforms();
     }
     
 #endif
