@@ -16,18 +16,19 @@ public class PlatformRepository
     
 #if CACHE_ENABLED
     private readonly IDistributedCache _cache;
-    public PlatformRepository(IDistributedCache cache, RedisCleaner cleaner)
-    {
-        _cache = cache;
-        _cleaner = cleaner;
-        _dataNormalizer = new JsonDataNormalizer();
-    }
-    
-#else
+#endif
     
     public PlatformRepository()
     {
         _dataNormalizer = new JsonDataNormalizer();
+    }
+    
+#if CACHE_ENABLED
+    
+    public PlatformRepository(IDistributedCache cache, RedisCleaner cleaner) : this()
+    {
+        _cache = cache;
+        _cleaner = cleaner;
     }
     
 #endif
