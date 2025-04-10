@@ -16,7 +16,7 @@ public class PlatformRepository
     
 #if CACHE_ENABLED
     private readonly IDistributedCache _cache;
-    public PlatformRepository(IDistributedCache cache, RedisCleaner cleaner = null)
+    public PlatformRepository(IDistributedCache cache, RedisCleaner cleaner)
     {
         _cache = cache;
         _cleaner = cleaner;
