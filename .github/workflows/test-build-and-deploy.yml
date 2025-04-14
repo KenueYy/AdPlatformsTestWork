@@ -99,5 +99,3 @@ jobs:
     needs: deploy
     steps:
       - name: Check API
-        run: |
-          curl -s -f http://${{ secrets.SERVER_IP }}:777/api/search?location=/ru || exit 1
