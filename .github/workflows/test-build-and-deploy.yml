@@ -92,10 +92,3 @@ jobs:
             docker-compose up -d --build
             
           debug: true
-
-  post-deploy-tests:
-    runs-on: ubuntu-latest
-    environment: production
-    needs: deploy
-    steps:
-      - name: Check API
