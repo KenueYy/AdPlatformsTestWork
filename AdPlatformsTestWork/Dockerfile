@@ -7,8 +7,8 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["AdPlatformsTestWork/AdPlatformsTestWork.csproj", "AdPlatformsTestWork/"]
 RUN dotnet restore "AdPlatformsTestWork/AdPlatformsTestWork.csproj"
-COPY .. /src/AdPlatformsTestWork/AdPlatformsTestWork
-WORKDIR "/src/AdPlatformsTestWork/AdPlatformsTestWork"
+COPY .. /src/AdPlatformsTestWork/
+WORKDIR "/src/AdPlatformsTestWork/"
 RUN dotnet build "AdPlatformsTestWork/AdPlatformsTestWork.csproj" -c Release -o /app/build
 
 FROM build AS publish
