@@ -40,4 +40,5 @@ public class AdPlatformController : ControllerBase
             return BadRequest(new { message = $"Invalid Data: {e.Message}" });
         }
     }
+    
 }
