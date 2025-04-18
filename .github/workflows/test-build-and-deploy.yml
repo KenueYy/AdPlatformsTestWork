@@ -20,7 +20,7 @@ jobs:
         run: |
           pwd 
           ls -R
-          docker build -f ./AdPlatformsTestWork/Dockerfile -t ad-platforms-testwork:latest .
+          docker build -f ./AdPlatformsTestWork/Dockerfile -t ad-platforms-testwork:latest ./AdPlatformsTestWork
 
       - name: Log in to DockerHub
         uses: docker/login-action@v2
