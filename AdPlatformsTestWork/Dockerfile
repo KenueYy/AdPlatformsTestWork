@@ -5,9 +5,9 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ./AdPlatformsTestWork/AdPlatformsTestWork.csproj ./AdPlatformsTestWork/
-RUN dotnet restore "./AdPlatformsTestWork/AdPlatformsTestWork.csproj"
-COPY ./AdPlatformsTestWork/ ./AdPlatformsTestWork/
+COPY ["AdPlatformsTestWork.csproj", "AdPlatformsTestWork/"]
+RUN dotnet restore "AdPlatformsTestWork.csproj"
+COPY .. /src/AdPlatformsTestWork
 WORKDIR "/src/AdPlatformsTestWork"
 RUN dotnet build "AdPlatformsTestWork.csproj" -c Release -o /app/build
 
