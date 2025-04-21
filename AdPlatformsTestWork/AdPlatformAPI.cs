@@ -12,11 +12,11 @@ public class AdPlatformAPI
 #if CACHE_ENABLED
         
         builder.Services.AddSingleton<IConnectionMultiplexer>(
-            ConnectionMultiplexer.Connect("45.89.65.103:6379")
+            ConnectionMultiplexer.Connect($"{Globals.CACHE_SERVER_IP}:{Globals.REDIS_PORT}")
         );
         builder.Services.AddScoped<RedisCleaner>();
         builder.Services.AddStackExchangeRedisCache(options => {
-            options.Configuration = $"45.89.65.103:6379";
+            options.Configuration = $"{Globals.CACHE_SERVER_IP}:{Globals.REDIS_PORT}";
             options.InstanceName = "location";
         });
         
